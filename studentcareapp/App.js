@@ -6,20 +6,17 @@ import ProfilePage from './components/ProfilePage';
 import CoursePage from './components/CoursePage';
 import SubjectPage from './components/SubjectPage';
 
+const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Profile" component={ProfilePage} />
+        <Stack.Screen name="Course" component={CoursePage} />
+        <Stack.Screen name="Subject" component={SubjectPage} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
